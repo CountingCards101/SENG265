@@ -22,18 +22,33 @@
  * @return int 0: No errors; 1: Errors produced.
  *
  */
+
+int factorial_calculation(int n){
+        if (n == 1){
+                return 1;
+        } else if ( n <= 0) {
+                return 0;
+        } else {
+                return n * factorial_calculation(n-1);
+        }
+}
+
 int main(int argc, char *argv[])
 {
-
         // variable to store the final answer
         int factorial = 1;
 
         // WRITE YOUR CODE TO DO COMMAND LINE INPUT CHECKING HERE
-
+        if ( argc != 2 ) {
+                printf( "The number of arguements supplied is not sufficient. Should be 1." );
+        }
         // Takes the command line input and converts it into int.
-        num = atoi(argv[1]);
+        int num;
+        num = atoi( argv[1] );
 
         // WRITE YOUR CODE TO DO THE FACTORIAL CALCULATIONS HERE
 
-        printf("%f\n", factorial);
+        factorial = factorial_calculation(num);
+        printf( "%d\n", factorial );
 }
+
